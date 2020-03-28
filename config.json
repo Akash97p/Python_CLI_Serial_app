@@ -1,1 +1,1 @@
-{'port': 'ttyUSB1', 'baud': '9600'}
+{'port': 'ttyUSB0', 'baud': '300'}

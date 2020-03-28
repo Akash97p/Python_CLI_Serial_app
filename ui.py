@@ -1,6 +1,14 @@
 from dependency import *
-#from classes import *
-f = Figlet(font='standard')
+
+style = style_from_dict({
+    Token.Separator: '#cc5454',
+    Token.QuestionMark: '#673ab7 bold',
+    Token.Selected: '#1E90FF',  # default
+    Token.Pointer: '#673ab7 bold',
+    Token.Instruction: '',  # default
+    Token.Answer: '#1E69FF bold',
+    Token.Question: '',
+})
 
 #---------------------------------------------------------------
 
@@ -25,35 +33,25 @@ def prev_update():
 
 #----------------Titile ASCII Text with arts fonts--------------
 def title_art(title):
+    asc_title = "        " + title
+    f = Figlet(font='standard')
+    for i in range (30):
+        cprint("-",'yellow', end="", flush=True)
+        cprint("-",'blue', end="", flush=True)
+    print("")
+    cprint (f.renderText(asc_title),'blue')
+    for i in range (30):
+        cprint("-",'yellow', end="", flush=True)
+        cprint("-",'blue', end="", flush=True)
+    print("")
+    cprint("                  Welcom to {} tool".format(title),'yellow')
+    for i in range (30):
+        cprint("-",'yellow', end="", flush=True)
+        cprint("-",'blue', end="", flush=True)
+        time.sleep(.02)
+    print("")
 
-    for i in range (30):
-        cprint("-",'yellow', end="", flush=True)
-        cprint("-",'blue', end="", flush=True)
-    print("")
-    cprint (f.renderText(title),'blue')
-    for i in range (30):
-        cprint("-",'yellow', end="", flush=True)
-        cprint("-",'blue', end="", flush=True)
-    print("")
-    cprint("                  Welcom to Serial CLI tool",'yellow')
-    for i in range (30):
-        cprint("-",'yellow', end="", flush=True)
-        cprint("-",'blue', end="", flush=True)
-    print("")
-    time.sleep(1)
 #---------------------------------------------------------------
-
-style = style_from_dict({
-    Token.Separator: '#cc5454',
-    Token.QuestionMark: '#673ab7 bold',
-    Token.Selected: '#1E90FF',  # default
-    Token.Pointer: '#673ab7 bold',
-    Token.Instruction: '',  # default
-    Token.Answer: '#1E69FF bold',
-    Token.Question: '',
-})
-
-
 
 def mm():
     # while True:
@@ -82,7 +80,7 @@ def conf_selec():
     global prev_port
     global s_conf
     s_conf ={}
-    cprint("Previus Conf  is : Port = {port} , Baud rate{baud}",'red'.format(port = prev_port , baud = prev_baud))
+    cprint("Previus Conf  is : Port = {port} , Baud rate{baud}".format(port = prev_port , baud = prev_baud),'red')
     prev_choice = prompt(prev_conf,style=style)
     if prev_choice["prev_continue"] == 'no':
         port = prompt(port_list, style=style)

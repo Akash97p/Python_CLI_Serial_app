@@ -1,6 +1,7 @@
 from ui import *
 
-title_art('       Serial CLI')
-
-while True:
-    mm()
+if __name__ == "__main__":
+    title_art('Serial CLI')
+    while True:
+        mm()
+        prev_update()
