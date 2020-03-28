@@ -219,8 +219,8 @@ def mm():
 #--------------------------------------------------------------------------------------
 
 def conf_selec():
-    # global prev_baud
-    # global prev_port
+    global prev_baud
+    global prev_port
     global s_conf
     s_conf ={}
     prev_choice = prompt(prev_conf,style=style)
@@ -243,8 +243,8 @@ def conf_selec():
                 cnfg_file.write(str(s_conf))
                 cnfg_file.close()
                 mm()
-                # prev_port = s_conf["port"]
-                # prev_baud = s_conf["baud"]
+                prev_port = s_conf["port"]
+                prev_baud = s_conf["baud"]
             else:
                 s_conf["baud"] = baud["speed"]
                 baud.clear()
@@ -252,8 +252,8 @@ def conf_selec():
                 cnfg_file.write(str(s_conf))
                 cnfg_file.close()
                 mm()
-                # prev_port = s_conf["port"]
-                # prev_baud = s_conf["baud"]
+                prev_port = s_conf["port"]
+                prev_baud = s_conf["baud"]
     elif prev_choice["prev_continue"] == 'yes':
         pprint("Previus Configuration Selected")
         mm()
