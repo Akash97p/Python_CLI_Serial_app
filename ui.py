@@ -1,5 +1,5 @@
 from dependency import *
-
+#from classes import *
 f = Figlet(font='standard')
 
 #---------------------------------------------------------------
@@ -25,16 +25,20 @@ def prev_update():
 
 #----------------Titile ASCII Text with arts fonts--------------
 def title_art(title):
-    for i in range (60):
-        print("-", end="", flush=True)
+
+    for i in range (30):
+        cprint("-",'yellow', end="", flush=True)
+        cprint("-",'blue', end="", flush=True)
     print("")
-    print (f.renderText(title))
-    for i in range (60):
-        print("-", end="", flush=True)
+    cprint (f.renderText(title),'blue')
+    for i in range (30):
+        cprint("-",'yellow', end="", flush=True)
+        cprint("-",'blue', end="", flush=True)
     print("")
-    print("              Welcom to Serial CLI tool")
-    for i in range (60):
-        print("-", end="", flush=True)
+    cprint("                  Welcom to Serial CLI tool",'yellow')
+    for i in range (30):
+        cprint("-",'yellow', end="", flush=True)
+        cprint("-",'blue', end="", flush=True)
     print("")
     time.sleep(1)
 #---------------------------------------------------------------
@@ -49,159 +53,7 @@ style = style_from_dict({
     Token.Question: '',
 })
 
-#--------------------------------------------------------------------------------------
 
-main_menu = [
-    {
-        'type': 'list',
-        'message': '',
-        'name': 'menu_selec',
-        'choices': [
-            {
-                'name':'Scan Ports'
-            },
-            {
-                'name':'Open port'
-            },
-            {
-                'name':'Send data'
-            },
-            {
-                'name':'Configuration'
-            },
-            {
-                'name':'Exit'
-            }
-        ],
-        'validate': lambda answer: 'You must choose at least one topping.' \
-            if len(answer) == 2 else True
-    }
-]
-
-#--------------------------------------------------------------------------------------
-prev_conf = [
-    {
-        'type': 'list',
-        'message': 'Previus Conf  is : Port = {port} , Baud rate{baud}'.format(port = prev_port , baud = prev_baud),
-        'name': 'prev_continue',
-        'choices': [
-            Separator('Continue with Previus Configuration'),
-            {
-                'name':'yes'
-            },
-            {
-                'name':'no'
-            }
-        ],
-        'validate': lambda answer: 'You must choose at least one topping.' \
-            if len(answer) == 2 else True
-    }
-]
-
-#--------------------------------------------------------------------------------------
-
-port_list = [
-    {
-        'type': 'list',
-        'message': '',
-        'name': 'port',
-        'choices': [
-            Separator('#  Available ports  #'),
-            {
-                'name':'ttyUSB0'
-            },
-            {
-                'name':'ttyUSB1'
-            },
-            {
-                'name':'ttyUSB2'
-            },
-                                    {
-                'name': 'Back'
-            }
-        ],
-        'validate': lambda answer: 'You must choose at least one topping.' \
-            if len(answer) == 2 else True
-    }
-]
-
-#--------------------------------------------------------------------------------------
-
-baud_list = [
-    {
-        'type': 'list',
-        'message': 'Select Speed',
-        'name': 'speed',
-        'choices': [
-            Separator('#  Baud Rate  #'),
-            {
-                'name': '300'
-            },
-            {
-                'name': '1200'
-            },
-            {
-                'name': '2400'
-            },
-            {
-                'name': '4800'
-            },
-            {
-                'name': '9600'
-            },
-            {
-                'name': '19200'
-            },
-            {
-                'name': '38400'
-            },
-            {
-                'name': '57600'
-            },
-            {
-                'name': '74880'
-            },
-            {
-                'name': '115200',
-                'checked': True
-            },
-            {
-                'name': '230400'
-            },
-            {
-                'name': '250000'
-            },
-                        {
-                'name': '500000'
-            },
-                        {
-                'name': '1000000'
-            },
-                        {
-                'name': '2000000'
-            },
-                                    {
-                'name': 'Custom'
-            },
-                                    {
-                'name': 'Back'
-            }
-        ],
-        'validate': lambda answer: 'You must choose at least one topping.' \
-            if len(answer) == 2 else True
-    }
-]
-
-#--------------------------------------------------------------------------------------
-
-Custom = [
-    {
-        'type': 'input',
-        'name': 'Custom_Baud_rate',
-        'message': 'Enter custom baud rate',
-        'default': '9600'
-    }
-]
 
 def mm():
     # while True:
@@ -212,13 +64,13 @@ def mm():
         mm_sl.clear()
         conf_selec()
     elif mm_sl["menu_selec"] == 'Scan Ports':
-        print("Sorry Function not implimented yet")
+        cprint("Sorry Function not implimented yet",'red')
         mm()
     elif mm_sl["menu_selec"] == 'Send data':
-        print("Sorry Function not implimented yet")
+        cprint("Sorry Function not implimented yet",'red')
         mm()
     elif mm_sl["menu_selec"] == 'Open port':
-        print("Sorry Function not implimented yet")
+        cprint("Sorry Function not implimented yet",'red')
         mm()
     else:
         exit_flag = True
@@ -230,6 +82,7 @@ def conf_selec():
     global prev_port
     global s_conf
     s_conf ={}
+    cprint("Previus Conf  is : Port = {port} , Baud rate{baud}",'red'.format(port = prev_port , baud = prev_baud))
     prev_choice = prompt(prev_conf,style=style)
     if prev_choice["prev_continue"] == 'no':
         port = prompt(port_list, style=style)

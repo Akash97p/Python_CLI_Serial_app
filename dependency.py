@@ -3,7 +3,8 @@ from PyInquirer import style_from_dict, Token, prompt, Separator
 from pprint import pprint
 from pyfiglet import Figlet
 import time
-from ui import *
 import argparse
 import serial
 import threading
+from termcolor import colored, cprint   
+from menus import *  
