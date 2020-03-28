@@ -25,11 +25,18 @@ def prev_update():
 
 #----------------Titile ASCII Text with arts fonts--------------
 def title_art(title):
+    for i in range (60):
+        print("-", end="", flush=True)
+    print("")
     print (f.renderText(title))
-    print("Welcom to Serial CLI tool")
-    #for i in range (20):
-        #print("-")
-    #time.sleep(1)
+    for i in range (60):
+        print("-", end="", flush=True)
+    print("")
+    print("              Welcom to Serial CLI tool")
+    for i in range (60):
+        print("-", end="", flush=True)
+    print("")
+    time.sleep(1)
 #---------------------------------------------------------------
 
 style = style_from_dict({

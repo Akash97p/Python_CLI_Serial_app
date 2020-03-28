@@ -2,7 +2,7 @@ from dependency import *
 
 #----------------Titile ASCII Text with arts fonts--------------
 
-title_art('Serial CLI')
+title_art('  Serial CLI')
 
 #-------------------------main_menu-----------------------------
 while True:
