@@ -59,18 +59,23 @@ def mm():
     global exit_flag
     global mm_sl
     mm_sl = prompt(main_menu,style=style)
-    if mm_sl["menu_selec"] == 'Configuration':
+    if mm_sl["menu_selec"] == '\U00002699  Configuration':
         mm_sl.clear()
         conf_selec()
-    elif mm_sl["menu_selec"] == 'Scan Ports':
+    elif mm_sl["menu_selec"] == '\U0001F50D Scan Ports':
+        mm_sl.clear()
+        scan_ports()
+    elif mm_sl["menu_selec"] == '\U0001F4E8 Send data':
+        mm_sl.clear()
         cprint("Sorry Function not implimented yet",'red')
         mm()
-    elif mm_sl["menu_selec"] == 'Send data':
+    elif mm_sl["menu_selec"] == '\U0001F4E9 Open port':
+        mm_sl.clear()
         cprint("Sorry Function not implimented yet",'red')
         mm()
-    elif mm_sl["menu_selec"] == 'Open port':
-        cprint("Sorry Function not implimented yet",'red')
-        mm()
+    elif mm_sl["menu_selec"] == '\U0001F4D6 Help':
+        mm_sl.clear()
+        help()
     else:
         exit_flag = True
         exit()

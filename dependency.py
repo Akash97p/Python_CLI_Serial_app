@@ -10,3 +10,6 @@ from termcolor import colored, cprint
 from menus import *  
 import serial.tools.list_ports as port_list
 from serial_setup import *
+
+def help():
+    cprint("this is help",'green')

@@ -1,4 +1,3 @@
-from dependency import *
 # List of Menu Structure
 
 #---------------------------------------- Main Menu ---------------------------------------
@@ -10,22 +9,22 @@ main_menu = [
         'name': 'menu_selec',
         'choices': [
             {
-                'name':'Scan Ports'
+                'name':'\U00002699  Configuration'
             },
             {
-                'name':'Open port'
+                'name':'\U0001F50D Scan Ports'
             },
             {
-                'name':'Send data'
+                'name':'\U0001F4E9 Open port'
             },
             {
-                'name':'Configuration'
+                'name':'\U0001F4E8 Send data'
             },
             {
-                'name':'Help'
+                'name':'\U0001F4D6 Help'
             },
             {
-                'name':'Exit'
+                'name':'\U0000274E Exit'
             }
         ]
     }
@@ -66,7 +65,7 @@ port_list = [
             {
                 'name':'ttyUSB2'
             },
-                                    {
+            {
                 'name': 'Back'
             }
         ]
