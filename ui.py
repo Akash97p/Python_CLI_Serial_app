@@ -19,7 +19,7 @@ def prev_update():
     dic = eval((cnfg_file.read()))
     prev_port = dic["port"]
     prev_baud = dic["baud"]
-    cnfg_file.close()
+    cnfg_file.close() 
     cprint("Previus Configuration  is :: Port : ",'cyan',end="", flush=True)
     cprint("{port}".format(port = prev_port),'red',end="", flush=True)
     cprint(" , Baud rate : ",'cyan',end="", flush=True)
@@ -40,7 +40,7 @@ def title_art(title):
     for i in range (30):
         cprint("-",'white', end="", flush=True)
         cprint("-",'cyan', end="", flush=True)
-        time.sleep(.01)
+        time.sleep(.005)
     print("")
     cprint(":: {} ::".format(title),'white',end="", flush=True)
     cprint("                              Author : Akash",'cyan')
@@ -48,7 +48,7 @@ def title_art(title):
     for i in range (30):
         cprint("-",'white', end="", flush=True)
         cprint("-",'cyan', end="", flush=True)
-        time.sleep(.02)
+        time.sleep(.005)
     print("")
     cprint("Use arrow keys to navigate , Enter to Select option",'white')
 
@@ -71,8 +71,7 @@ def mm():
         mm()
     elif mm_sl["menu_selec"] == '\U0001F4E9 Open port':
         mm_sl.clear()
-        cprint("Sorry Function not implimented yet",'red')
-        mm()
+        serial_open()
     elif mm_sl["menu_selec"] == '\U0001F4D6 Help':
         mm_sl.clear()
         help()
@@ -87,7 +86,7 @@ def conf_selec():
     prev_update()
     prev_choice = prompt(prev_conf,style=style)
     if prev_choice["prev_continue"] == 'no':
-        port = prompt(port_list, style=style)
+        port = prompt(ports_list, style=style)
         if port["port"] == 'Back':
             port.clear()
             mm()

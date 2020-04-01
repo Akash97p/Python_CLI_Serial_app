@@ -1,3 +1,4 @@
+from dependency import *
 # List of Menu Structure
 
 #---------------------------------------- Main Menu ---------------------------------------
@@ -50,20 +51,20 @@ prev_conf = [
 
 #---------------------------------- Availavle Ports List- ---------------------------------
 
-port_list = [
+ports_list = [
     {
         'type': 'list',
         'message': '',
         'name': 'port',
         'choices': [
             {
-                'name':'ttyUSB0'
+                'name':'/dev/ttyUSB0'
             },
             {
-                'name':'ttyUSB1'
+                'name':'/dev/ttyUSB1'
             },
             {
-                'name':'ttyUSB2'
+                'name':'/dev/ttyUSB2'
             },
             {
                 'name': 'Back'
@@ -148,3 +149,10 @@ Custom = [
 ]
 
 #---------------------------------------------------------------------------------------
+
+def help():
+    cprint("\U0001F4A1 Use arrow keys to navigate.",'green')
+    cprint("\U0001F4A1 Press Enter to Select option.",'yellow')
+    cprint("\U0001F4A1 Long Press",'green',end="", flush=True)
+    cprint(" Esc ",'red',end="", flush=True)
+    cprint("to exit from serial monitor",'green')
