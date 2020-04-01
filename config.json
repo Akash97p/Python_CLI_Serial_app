@@ -1,3 +1,1 @@
-{'port': 'ttyUSB0', 'baud': '300'}
-
-#hi from ubuntu
+{'port': 'ttyUSB2', 'baud': '115200'}

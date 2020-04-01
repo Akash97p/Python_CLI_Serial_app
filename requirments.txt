@@ -1,0 +1,6 @@
+#cat requirments.txt
+#argparse==1.4.0
+#pyserial==3.4
+#PyInquirer==1.0.3
+#termcolor==1.1.0
+#pyfiglet==0.8.post1

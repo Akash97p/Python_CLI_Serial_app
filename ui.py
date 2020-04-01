@@ -3,8 +3,8 @@ from dependency import *
 style = style_from_dict({
     Token.Separator: '#cc5454',
     Token.QuestionMark: '#673ab7 bold',
-    Token.Selected: '#1E90FF',  # default
-    Token.Pointer: '#673ab7 bold',
+    Token.Selected: '#06989a',  # default
+    Token.Pointer: '#ffffff bold',
     Token.Instruction: '',  # default
     Token.Answer: '#1E69FF bold',
     Token.Question: '',
@@ -12,44 +12,45 @@ style = style_from_dict({
 
 #---------------------------------------------------------------
 
-global prev_baud
-global prev_port
-cnfg_file = open("config.json","r+")
-dic = eval((cnfg_file.read()))
-prev_port = dic["port"]
-prev_baud = dic["baud"]
-cnfg_file.close()
- 
 def prev_update():
-    while True:
-        global prev_baud
-        global prev_port
-        cnfg_file = open("config.json","r+")
-        dic = eval((cnfg_file.read()))
-        prev_port = dic["port"]
-        prev_baud = dic["baud"]
-        cnfg_file.close()
-        time.sleep(1)
+    global prev_baud
+    global prev_port
+    cnfg_file = open("config.json","r+")
+    dic = eval((cnfg_file.read()))
+    prev_port = dic["port"]
+    prev_baud = dic["baud"]
+    cnfg_file.close()
+    cprint("Previus Configuration  is :: Port : ",'cyan',end="", flush=True)
+    cprint("{port}".format(port = prev_port),'red',end="", flush=True)
+    cprint(" , Baud rate : ",'cyan',end="", flush=True)
+    cprint("{baud}".format(baud = prev_baud),'red')
+    cprint("Continue with Previus Configuration ?",'white')
+    #time.sleep(1)
 
 #----------------Titile ASCII Text with arts fonts--------------
+
 def title_art(title):
     asc_title = "        " + title
     f = Figlet(font='standard')
     for i in range (30):
-        cprint("-",'yellow', end="", flush=True)
-        cprint("-",'blue', end="", flush=True)
+        cprint("-",'white', end="", flush=True)
+        cprint("-",'cyan', end="", flush=True)
     print("")
-    cprint (f.renderText(asc_title),'blue')
+    cprint (f.renderText(asc_title),'cyan')
     for i in range (30):
-        cprint("-",'yellow', end="", flush=True)
-        cprint("-",'blue', end="", flush=True)
+        cprint("-",'white', end="", flush=True)
+        cprint("-",'cyan', end="", flush=True)
+        time.sleep(.01)
     print("")
-    cprint("                  Welcom to {} tool".format(title),'yellow')
+    cprint(":: {} ::".format(title),'white',end="", flush=True)
+    cprint("                              Author : Akash",'cyan')
+    cprint("                                              Version : 1.0",'cyan')
     for i in range (30):
-        cprint("-",'yellow', end="", flush=True)
-        cprint("-",'blue', end="", flush=True)
+        cprint("-",'white', end="", flush=True)
+        cprint("-",'cyan', end="", flush=True)
         time.sleep(.02)
     print("")
+    cprint("Use arrow keys to navigate , Enter to Select option",'white')
 
 #---------------------------------------------------------------
 
@@ -76,11 +77,9 @@ def mm():
 #--------------------------------------------------------------------------------------
 
 def conf_selec():
-    global prev_baud
-    global prev_port
     global s_conf
     s_conf ={}
-    cprint("Previus Conf  is : Port = {port} , Baud rate{baud}".format(port = prev_port , baud = prev_baud),'red')
+    prev_update()
     prev_choice = prompt(prev_conf,style=style)
     if prev_choice["prev_continue"] == 'no':
         port = prompt(port_list, style=style)
@@ -101,8 +100,6 @@ def conf_selec():
                 cnfg_file.write(str(s_conf))
                 cnfg_file.close()
                 mm()
-                prev_port = s_conf["port"]
-                prev_baud = s_conf["baud"]
             else:
                 s_conf["baud"] = baud["speed"]
                 baud.clear()
@@ -110,8 +107,6 @@ def conf_selec():
                 cnfg_file.write(str(s_conf))
                 cnfg_file.close()
                 mm()
-                prev_port = s_conf["port"]
-                prev_baud = s_conf["baud"]
     elif prev_choice["prev_continue"] == 'yes':
-        pprint("Previus Configuration Selected")
+        cprint("Previus Configuration Selected",'green')
         mm()

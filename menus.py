@@ -1,3 +1,4 @@
+from dependency import *
 # List of Menu Structure
 
 #---------------------------------------- Main Menu ---------------------------------------
@@ -19,6 +20,9 @@ main_menu = [
             },
             {
                 'name':'Configuration'
+            },
+            {
+                'name':'Help'
             },
             {
                 'name':'Exit'
