@@ -40,10 +40,10 @@ prev_conf = [
         'name': 'prev_continue',
         'choices': [
             {
-                'name':'yes'
+                'name':'Yes'
             },
             {
-                'name':'no'
+                'name':'No'
             }
         ]
     }
@@ -54,7 +54,7 @@ prev_conf = [
 ports_list = [
     {
         'type': 'list',
-        'message': '',
+        'message': 'Select Port :',
         'name': 'port',
         'choices': [
             {
@@ -78,7 +78,7 @@ ports_list = [
 baud_list = [
     {
         'type': 'list',
-        'message': 'Select Speed',
+        'message': 'Select Speed :',
         'name': 'speed',
         'choices': [
             {
@@ -143,12 +143,30 @@ Custom = [
     {
         'type': 'input',
         'name': 'Custom_Baud_rate',
-        'message': 'Enter custom baud rate',
+        'message': 'Enter custom baud rate :',
         'default': '9600'
     }
 ]
 
-#---------------------------------------------------------------------------------------
+#------------------------------ Save Serial monitor op to file -----------------------------
+
+save = [
+    {
+        'type': 'list',
+        'message': 'Save Serial monitor output to output.txt :',
+        'name': 'save_op',
+        'choices': [
+            {
+                'name':'Yes'
+            },
+            {
+                'name':'No'
+            }
+        ]
+    }
+]
+
+#------------------------------------------- Help -------------------------------------------
 
 def help():
     cprint("\U0001F4A1 Use arrow keys to navigate.",'green')

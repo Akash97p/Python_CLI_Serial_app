@@ -6,7 +6,7 @@ style = style_from_dict({
     Token.Selected: '#06989a',  # default
     Token.Pointer: '#ffffff bold',
     Token.Instruction: '',  # default
-    Token.Answer: '#1E69FF bold',
+    Token.Answer: '#06989a',
     Token.Question: '',
 })
 
@@ -58,6 +58,7 @@ def mm():
     # while True:
     global exit_flag
     global mm_sl
+    global verbos_flag
     mm_sl = prompt(main_menu,style=style)
     if mm_sl["menu_selec"] == '\U00002699  Configuration':
         mm_sl.clear()
@@ -71,7 +72,7 @@ def mm():
         mm()
     elif mm_sl["menu_selec"] == '\U0001F4E9 Open port':
         mm_sl.clear()
-        serial_open()
+        serial_open(verbos_flag)
     elif mm_sl["menu_selec"] == '\U0001F4D6 Help':
         mm_sl.clear()
         help()
@@ -82,10 +83,11 @@ def mm():
 
 def conf_selec():
     global s_conf
+    global verbos_flag
     s_conf ={}
     prev_update()
     prev_choice = prompt(prev_conf,style=style)
-    if prev_choice["prev_continue"] == 'no':
+    if prev_choice["prev_continue"] == 'No':
         port = prompt(ports_list, style=style)
         if port["port"] == 'Back':
             port.clear()
@@ -103,14 +105,26 @@ def conf_selec():
                 cnfg_file = open("config.json","w")
                 cnfg_file.write(str(s_conf))
                 cnfg_file.close()
-                mm()
+                sf = prompt(save, style=style)
+                if sf["save_op"] == 'Yes':
+                    verbos_flag = 1
+                    mm()
+                else :
+                    verbos_flag = 0
+                    mm()
             else:
                 s_conf["baud"] = baud["speed"]
                 baud.clear()
                 cnfg_file = open("config.json","w")
                 cnfg_file.write(str(s_conf))
                 cnfg_file.close()
-                mm()
-    elif prev_choice["prev_continue"] == 'yes':
+                sf = prompt(save, style=style)
+                if sf["save_op"] == 'Yes':
+                    verbos_flag = 1
+                    mm()
+                else :
+                    verbos_flag = 0
+                    mm()
+    elif prev_choice["prev_continue"] == 'Yes':
         cprint("Previus Configuration Selected",'green')
         mm()
