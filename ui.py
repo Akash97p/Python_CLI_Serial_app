@@ -19,14 +19,18 @@ def prev_update():
     dic = eval((cnfg_file.read()))
     prev_port = dic["port"]
     prev_baud = dic["baud"]
+    vf = dic["vf"]
     cnfg_file.close() 
-    cprint("Previus Configuration  is :: Port : ",'cyan',end="", flush=True)
+    cprint("Current Config ::",'cyan',end="", flush=True)
+    cprint(" Port : ",'white',end="", flush=True)
     cprint("{port}".format(port = prev_port),'red',end="", flush=True)
-    cprint(" , Baud rate : ",'cyan',end="", flush=True)
-    cprint("{baud}".format(baud = prev_baud),'red')
-    cprint("Continue with Previus Configuration ?",'white')
-    #time.sleep(1)
-
+    cprint(" , Baud rate : ",'white',end="", flush=True)
+    cprint("{baud}".format(baud = prev_baud),'red',end="", flush=True)
+    cprint(" , Save output : ",'white',end="", flush=True)
+    if vf == 1 :
+        cprint("Yes",'green')
+    else:
+        cprint("No",'red')
 #----------------Titile ASCII Text with arts fonts--------------
 
 def title_art(title):
@@ -72,7 +76,7 @@ def mm():
         mm()
     elif mm_sl["menu_selec"] == '\U0001F4E9 Open port':
         mm_sl.clear()
-        serial_open(verbos_flag)
+        serial_open()
     elif mm_sl["menu_selec"] == '\U0001F4D6 Help':
         mm_sl.clear()
         help()
@@ -86,45 +90,60 @@ def conf_selec():
     global verbos_flag
     s_conf ={}
     prev_update()
+    cprint("Continue with Current Configuration ?",'white', end="", flush=True)
     prev_choice = prompt(prev_conf,style=style)
     if prev_choice["prev_continue"] == 'No':
+        cprint("Select Port : ",'white', end="", flush=True)
         port = prompt(ports_list, style=style)
         if port["port"] == 'Back':
             port.clear()
             mm()
         else:
             s_conf["port"] = port["port"]
+            cprint("Select Speed : ",'white', end="", flush=True)
             baud = prompt(baud_list, style=style)
             if baud["speed"] == 'Back':
                 mm()
             elif baud["speed"] == 'Custom':
                 baud.clear()
+                cprint("Enter custom baud rate :",'white', end="", flush=True)
                 cb = prompt(Custom, style=style)
                 s_conf["baud"] = cb["Custom_Baud_rate"]
                 cb.clear()
                 cnfg_file = open("config.json","w")
                 cnfg_file.write(str(s_conf))
                 cnfg_file.close()
+                cprint("Save Serial monitor output to output.txt :",'white', end="", flush=True)
                 sf = prompt(save, style=style)
                 if sf["save_op"] == 'Yes':
-                    verbos_flag = 1
+                    s_conf["vf"] = 1
+                    cnfg_file = open("config.json","w")
+                    cnfg_file.write(str(s_conf))
+                    cnfg_file.close()
                     mm()
                 else :
-                    verbos_flag = 0
+                    s_conf["vf"] = 0
+                    cnfg_file = open("config.json","w")
+                    cnfg_file.write(str(s_conf))
+                    cnfg_file.close()
                     mm()
             else:
                 s_conf["baud"] = baud["speed"]
                 baud.clear()
-                cnfg_file = open("config.json","w")
-                cnfg_file.write(str(s_conf))
-                cnfg_file.close()
+                cprint("Save Serial monitor output to output.txt :",'white', end="", flush=True)
                 sf = prompt(save, style=style)
                 if sf["save_op"] == 'Yes':
-                    verbos_flag = 1
+                    s_conf["vf"] = 1
+                    cnfg_file = open("config.json","w")
+                    cnfg_file.write(str(s_conf))
+                    cnfg_file.close()
                     mm()
                 else :
-                    verbos_flag = 0
+                    s_conf["vf"] = 0
+                    cnfg_file = open("config.json","w")
+                    cnfg_file.write(str(s_conf))
+                    cnfg_file.close()
                     mm()
     elif prev_choice["prev_continue"] == 'Yes':
-        cprint("Previus Configuration Selected",'green')
+        #cprint("Previus Configuration Selected",'cyan')
         mm()

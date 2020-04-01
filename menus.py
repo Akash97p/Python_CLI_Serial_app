@@ -54,7 +54,7 @@ prev_conf = [
 ports_list = [
     {
         'type': 'list',
-        'message': 'Select Port :',
+        'message': '',
         'name': 'port',
         'choices': [
             {
@@ -78,7 +78,7 @@ ports_list = [
 baud_list = [
     {
         'type': 'list',
-        'message': 'Select Speed :',
+        'message': '',
         'name': 'speed',
         'choices': [
             {
@@ -143,7 +143,7 @@ Custom = [
     {
         'type': 'input',
         'name': 'Custom_Baud_rate',
-        'message': 'Enter custom baud rate :',
+        'message': '',
         'default': '9600'
     }
 ]
@@ -153,7 +153,7 @@ Custom = [
 save = [
     {
         'type': 'list',
-        'message': 'Save Serial monitor output to output.txt :',
+        'message': '',
         'name': 'save_op',
         'choices': [
             {
