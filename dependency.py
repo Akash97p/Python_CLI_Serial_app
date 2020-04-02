@@ -12,3 +12,5 @@ import serial.tools.list_ports as port_list
 from serial_setup import *
 import keyboard
 import datetime
+import colorama
+import platform
