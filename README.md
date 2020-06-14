@@ -1,3 +1,3 @@
 # TUI for Serial Communication
 
-![Image of Yaktocat]([https://lh3.googleusercontent.com/pw/ACtC-3ceA2ZV1SOLkxH-IniLTQT-cHTFhOpME8nTE04DZjqs4N7WKnG5Sn0QIZc2L4NiSmPi9ZaNCOxSi_Ul1CeXmq2TD5MTimaxQXOgvKGpNcGNHSrEkhMMjuAm9dSMJ24x0wcCBbmFykloS41Uia4ZeNktcQ=w1110-h624-no?authuser=0](https://lh3.googleusercontent.com/pw/ACtC-3ceA2ZV1SOLkxH-IniLTQT-cHTFhOpME8nTE04DZjqs4N7WKnG5Sn0QIZc2L4NiSmPi9ZaNCOxSi_Ul1CeXmq2TD5MTimaxQXOgvKGpNcGNHSrEkhMMjuAm9dSMJ24x0wcCBbmFykloS41Uia4ZeNktcQ=w1110-h624-no?authuser=0))
+![.]([https://lh3.googleusercontent.com/pw/ACtC-3ceA2ZV1SOLkxH-IniLTQT-cHTFhOpME8nTE04DZjqs4N7WKnG5Sn0QIZc2L4NiSmPi9ZaNCOxSi_Ul1CeXmq2TD5MTimaxQXOgvKGpNcGNHSrEkhMMjuAm9dSMJ24x0wcCBbmFykloS41Uia4ZeNktcQ=w1110-h624-no?authuser=0](https://lh3.googleusercontent.com/pw/ACtC-3ceA2ZV1SOLkxH-IniLTQT-cHTFhOpME8nTE04DZjqs4N7WKnG5Sn0QIZc2L4NiSmPi9ZaNCOxSi_Ul1CeXmq2TD5MTimaxQXOgvKGpNcGNHSrEkhMMjuAm9dSMJ24x0wcCBbmFykloS41Uia4ZeNktcQ=w1110-h624-no?authuser=0])
