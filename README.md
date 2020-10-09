@@ -1,5 +1,5 @@
 # TUI app for Serial Communication (Linux only)
-<hr>
+
 
 <a href="https://github.com/Akash97p/Python_CLI_Serial_app">
 <img align="right" src="https://img.shields.io/badge/Version-1.0-informational?style=flat&color=green" >
@@ -20,14 +20,14 @@ Options
 * Send data
 * **store serial data to txt file**.
 
-# Installatig Dependencies
+## Installatig Dependencies
 
 ```sh
 $ cd SerialCLI
 $ pip install -r requirements.txt
 ```
 
-# Run
+## Run
 
 ```sh
 $ cd SerialCLI
