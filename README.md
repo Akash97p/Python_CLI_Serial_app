@@ -15,7 +15,7 @@
 
 Simple python script to listen/send data to serial ports.
 
-Options
+### **Options**
 * Scan ports  
 * Listen
 * Send data
