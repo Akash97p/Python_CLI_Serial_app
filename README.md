@@ -21,7 +21,7 @@ Simple python script to listen/send data to serial ports.
 * Send data
 * **store serial data to txt file**.
 
-## Installatig Dependencies
+## Installing Dependencies
 
 ```sh
 $ cd SerialCLI
